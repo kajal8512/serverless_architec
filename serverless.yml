@@ -1,0 +1,15 @@
+service: serverlessApp
+frameworkVersion: '3'
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: ap-south-1
+
+functions:
+  helpers:
+    handler: service/zohoApi.getStudents
+    events:
+      - httpApi:
+          path: /get/zohoData
+          method: get
+      
